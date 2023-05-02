@@ -47,16 +47,16 @@ def decision_function(model, ax = None, plot_support = True):
     xy = np.vstack([X.ravel(), Y.ravel()]).T
     P = model.decision_function(xy).reshape(X.shape)
 
-    ax.contour(X, Y, P, colors = 'k', levels = [-1, 0, 1], alpha = 0.5, linestyles = ['--', '-', '--'])
+    ax.contour(X, Y, P, colors = "k", levels = [-1, 0, 1], alpha = 0.5, linestyles = ["--", "-", "--"])
 
     if plot_support:
         ax.scatter(model.support_vectors_[:, 0],
-        model.support_vectors_[:, 1], s = 300, linewidth = 1, facecolors = 'none');
+        model.support_vectors_[:, 1], s = 300, linewidth = 1, facecolors = "none")
     ax.set_xlim(xlim)
     ax.set_ylim(ylim)
 
-plt.scatter(X[:, 0], X[:, 1], c = y, s = 50, cmap = 'summer')
-decision_function(model);
+plt.scatter(X[:, 0], X[:, 1], c = y, s = 50, cmap = "summer")
+decision_function(model)
 plt.show()
 
 print(model.support_vectors_)
